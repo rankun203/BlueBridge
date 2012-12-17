@@ -10,12 +10,8 @@ public class MyRobot {
 
     public static void main(String [] args){
         System.out.println("I'm robot");
-        MyRobot newRobot = new MyRobot();
 
-        actionLength = 2;
-        newRobot.setOldPoint(new int[]{0, 0});
-
-System.out.println(newRobot.move("15L10R5LRR10R").getDistance());
+System.out.println(new MyRobot().setOldPoint(new int[]{0, 0}).move("15L10R5LRR10R").getDistance());
     }
 
     public double getDistance(){
@@ -79,15 +75,12 @@ System.out.println("newPoint:" + "(" + newPoint[0] + "," + newPoint[1] + ")");
                     }
                 }
             } else if(curAction instanceof Integer){
-                if((Integer)curAction >= 48 || (Integer)curAction <= 51){
-                    switch (curDirection){
-                        case 0:newPoint[1] = newPoint[1] + (Integer)curAction; break;
-                        case 1:newPoint[0] = newPoint[0] + (Integer)curAction; break;
-                        case 2:newPoint[1] = newPoint[1] - (Integer)curAction; break;
-                        case 3:newPoint[0] = newPoint[0] - (Integer)curAction; break;
-                    }
+                switch (curDirection){
+                    case 0:newPoint[1] = newPoint[1] + (Integer)curAction; break;
+                    case 1:newPoint[0] = newPoint[0] + (Integer)curAction; break;
+                    case 2:newPoint[1] = newPoint[1] - (Integer)curAction; break;
+                    case 3:newPoint[0] = newPoint[0] - (Integer)curAction; break;
                 }
-
             }
             System.out.println("after action:" + curAction + " newPoint:" + "(" + newPoint[0] + "," + newPoint[1] + ")");
         }

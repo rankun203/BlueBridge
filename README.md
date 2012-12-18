@@ -9,7 +9,7 @@
 
 轻量级在线IDE<br />
     &nbsp;&nbsp;&nbsp;&nbsp;1、<a href="http://www.compileonline.com/compile_java_online.php">Compileonline Java</a>(desc:打开就能编辑运行代码)<br />
-    &nbsp;&nbsp;&nbsp;&nbsp;2、<a href="https://compilr.com">Compilr</a>(集成IDE，功能复杂且强大)
+    &nbsp;&nbsp;&nbsp;&nbsp;2、<a href="https://compilr.com">Compilr</a>(desc:集成IDE，功能复杂且强大)
     
 大赛特色：
 

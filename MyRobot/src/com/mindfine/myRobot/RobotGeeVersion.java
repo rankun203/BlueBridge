@@ -1,3 +1,5 @@
+package com.mindfine.myRobot;
+
 public class RobotGeeVersion {
   public static void main(String[] args) {
 		Robot r = new Robot();

@@ -9,9 +9,10 @@ public class MyRobot {
     private static int curDirection = 0;//0:ahead, 1:right, 2:back, 3:left
 
     public static void main(String [] args){
-        System.out.println("I'm robot");
-
+        
+System.out.println("I'm robot");
 System.out.println(new MyRobot().setOldPoint(new int[]{0, 0}).move("15L10R5LRR10R").getDistance());
+
     }
 
     public double getDistance(){

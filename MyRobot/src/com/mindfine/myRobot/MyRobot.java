@@ -83,7 +83,7 @@ System.out.println("newPoint:" + "(" + newPoint[0] + "," + newPoint[1] + ")");
                     case 3:newPoint[0] = newPoint[0] - (Integer)curAction; break;
                 }
             }
-            System.out.println("after action:" + curAction + " newPoint:" + "(" + newPoint[0] + "," + newPoint[1] + ")");
+System.out.println("after action:" + curAction + " newPoint:" + "(" + newPoint[0] + "," + newPoint[1] + ")");
         }
         return this;
     }

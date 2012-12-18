@@ -1,0 +1,58 @@
+class Robot {
+  private int x=0;
+	private int y=0;
+	private int walk = 0;  //走多少步
+	private int direction = 1; //1代表向前、2代表向右、3代表向后、4代表向左
+	public static void main(String[] args) {
+		new Robot("15L10R5LRR10R20");	
+	}
+	Robot(String pat) {
+		myRobot(pat);
+	}
+	private void myRobot(String pat) {
+		String sub = ""; //连续数字的字符串
+		for(int i=0;i<pat.length();i++) {
+			if(pat.charAt(i) >= '0' && pat.charAt(i) <= '9') {
+				sub += pat.charAt(i);
+			} else if (pat.charAt(i) == 'R' || pat.charAt(i) =='r' ) {
+				if(!("".equals(sub))) {
+					walk = Integer.parseInt(sub);
+					sub = "";
+				}
+				walkTo();
+				direction++;
+				if(direction > 4 ) {
+					direction = 1;
+				} 
+			} else if(pat.charAt(i) == 'L' ||pat.charAt(i) == 'l') {
+				if(!("".equals(sub))) {
+					walk = Integer.parseInt(sub);
+					sub = "";
+				}
+				walkTo();
+				direction--;
+				if(direction < 1) {
+					direction = 4;
+				} 				
+			}
+		}
+		if(!("".equals(sub))) {
+			walk = Integer.parseInt(sub);
+			walkTo();
+		}
+		double d = Math.sqrt(x*x+y*y);
+		print("最终点距开始点的距离:"+d);
+	}
+	private void walkTo() {
+		switch(direction) {
+			case 1: y += walk; print("向前方走"+walk); walk = 0;break;
+			case 2: x += walk; print("向右方走"+walk); walk = 0;break;
+			case 3: y -= walk; print("向后退"+walk); walk = 0;break;
+			case 4: x -= walk; print("向左方走"+walk); walk = 0;break;
+		}
+	}
+	private void print(String s) {
+
+		System.out.println(s);
+	}
+}

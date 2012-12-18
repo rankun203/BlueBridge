@@ -7,6 +7,10 @@
     个人赛设置JAVA软件开发和C/C++程序设计两个科目，设置"本科A组"、"本科B组"和"高职高专组"三个组别，
     团队赛设置软件创业赛一个科目组别。
 
+轻量级在线IDE
+    1、<a href="http://www.compileonline.com/compile_java_online.php">Compileonline Java</a>(desc:打开就能编辑运行代码)
+    2、<a href="https://compilr.com">Compilr</a>(集成IDE，功能复杂且强大)
+    
 大赛特色：
 
     立足行业，结合实际，实战演练，促进就业。 

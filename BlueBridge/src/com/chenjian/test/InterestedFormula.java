@@ -24,15 +24,15 @@ public class InterestedFormula {
 										int index = 0;
 										int val = 0;
 										for (String tmp : s) {
-											if (0 == index) {
+											if (0 == index) {   //第一个数
 												val = Integer.parseInt(tmp);
 												index = 1;
 												continue;
 											}
 											if ("ADD".equals(tmp)) {
-												flag = 1; // ��ʾ��
+												flag = 1; //加法
 											} else if ("SUB".equals(tmp)) {
-												flag = 2; // ��ʾ��
+												flag = 2; // 减法
 											} else {
 												switch (flag) {
 													case 1: {
@@ -42,7 +42,7 @@ public class InterestedFormula {
 														val -= Integer.parseInt(tmp);
 													}break;
 													default:{
-														System.out.println("��������ˣ������ɡ�");
+														System.out.println("好像出错了!");
 													}break;
 												}
 											}
@@ -65,6 +65,6 @@ public class InterestedFormula {
 				}
 			}
 		}
-		System.out.println("�ܹ���" + count + "�����㡣");
+		System.out.println("总共有" + count + "条满足条件");
 	}
 }

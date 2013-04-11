@@ -1,12 +1,12 @@
 package com.chenjian.test;
 /*
- * È¤Î¶ËãÊ½
+ * è¶£å‘³ç®—æ•°
  */
 public class InterestedFormula {
 	public static void main(String[] args) {
 		final String[] opt = { ",ADD,", ",SUB,", "" };
 		String str = "";
-		int count = 0;
+		int count = 0; 
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
 				for (int k = 0; k < 3; k++) {
@@ -30,9 +30,9 @@ public class InterestedFormula {
 												continue;
 											}
 											if ("ADD".equals(tmp)) {
-												flag = 1; // ±íÊ¾¼Ó
+												flag = 1; // ï¿½ï¿½Ê¾ï¿½ï¿½
 											} else if ("SUB".equals(tmp)) {
-												flag = 2; // ±íÊ¾¼õ
+												flag = 2; // ï¿½ï¿½Ê¾ï¿½ï¿½
 											} else {
 												switch (flag) {
 													case 1: {
@@ -42,7 +42,7 @@ public class InterestedFormula {
 														val -= Integer.parseInt(tmp);
 													}break;
 													default:{
-														System.out.println("ºÃÏñ³ö´íÁË£¡¿´¿´°É¡£");
+														System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¡ï¿½");
 													}break;
 												}
 											}
@@ -65,6 +65,6 @@ public class InterestedFormula {
 				}
 			}
 		}
-		System.out.println("×Ü¹²ÓÐ" + count + "ÌõÂú×ã¡£");
+		System.out.println("ï¿½Ü¹ï¿½ï¿½ï¿½" + count + "ï¿½ï¿½ï¿½ï¿½ï¿½ã¡£");
 	}
 }

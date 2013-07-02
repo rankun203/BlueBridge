@@ -1,0 +1,10 @@
+void h(int space, char x)
+{
+	int i;
+	if(x<'A' || x>'Z') return;
+	_______________;
+	for(i=0; i<space; i++) printf(" ");
+	for(i=0; i<x-'A'; i++) printf("%c",'A'+i);
+	for(i=0; i<=x-'A'; i++) printf("%c",______);
+	printf("\n");
+}

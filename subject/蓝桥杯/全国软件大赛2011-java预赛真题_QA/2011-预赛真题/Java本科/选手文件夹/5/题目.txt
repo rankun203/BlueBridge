@@ -1,0 +1,30 @@
+public static class Cow 
+{
+	private int age;
+	public Cow afterYear()
+	{
+		age++;
+		return age > 2 ? new Cow() : ___________;
+	}	
+	
+	public static void showTotalCowNum(int n)
+	{
+		List<Cow> list = new ArrayList<Cow>();
+		list.add(new Cow());
+
+		for (int i = 0; i < n; i++)
+		{
+			int cowCount = list.size();
+			for (int j = 0; j < cowCount; j++)
+			{
+				Cow cow = list.get(j).afterYear(); // 填空
+				if (cow != null)
+				{
+					________________; 
+					list.add(cow);
+				}
+			}
+		}
+		System.out.println(n + "年后，共有：" + list.size());		
+	}
+}

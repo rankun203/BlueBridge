@@ -1,0 +1,8 @@
+void reverse_str(char* buf, int n)
+{
+	if(n<2) return;
+	char tmp = buf[0];
+	buf[0] = buf[n-1];
+	buf[n-1] = tmp;
+	_______________________________;
+}

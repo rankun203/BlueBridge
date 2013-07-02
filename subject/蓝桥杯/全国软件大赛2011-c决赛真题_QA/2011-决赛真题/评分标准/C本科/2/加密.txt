@@ -1,0 +1,53 @@
+
+在对文本进行简单加密的时候，可以选择用一个n位的二进制数，对原文进行异或运算。
+解密的方法就是再执行一次同样的操作。
+
+加密过程中n位二进制数会循环使用。并且其长度也可能不是8的整数倍。
+
+下面的代码演示了如何实现该功能。
+
+
+请仔细阅读，填写空缺的代码（下划线部分）。
+
+注意：请把填空的答案（仅填空处的答案，不包括题面）存入考生文件夹下对应题号的“解答.txt”中即可。
+直接写在题面中不能得分。
+
+
+void f(char* buf, unsigned char* uckey, int n)
+{
+	int i;
+	for(i=0; i<n; i++)
+		buf[i] = buf[i] ^ uckey[i];
+}
+
+int main(int argc, char* argv[])
+{
+	char p[] = "abcd中国人123";  // 待加密串
+
+	char* key = "11001100010001110";  //以串的形式表达的密匙，运算时要转换为按位存储的形式。
+
+	int np = strlen(p);
+	int nk = strlen(key);
+	unsigned char* uckey = (unsigned char*)malloc(np);  
+	
+	// 密匙串需要按位的形式循环拼入 uckey中
+	int i;
+	for(i=0; i<np*8; i++)
+	{
+		if(key[i%nk]=='1')
+			____________________________________________;  // 填空1
+		else
+			____________________________________________;  // 填空2
+
+	}
+	
+	f(p, uckey, strlen(p));
+	f(p, uckey, strlen(p));
+
+	printf("%s\n", p);
+
+	free(uckey);
+
+	return 0;
+}
+

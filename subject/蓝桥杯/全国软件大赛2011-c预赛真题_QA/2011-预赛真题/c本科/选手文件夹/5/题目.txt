@@ -1,0 +1,23 @@
+void shift(char* s, int n)
+{
+	char* p;
+	char* q;
+	int len = strlen(s);
+	if(len==0) return;
+	if(n<=0 || n>=len) return;
+
+	char* s2 = (char*)malloc(_________);
+	p = s;
+	q = s2 + n % len;
+	while(*p)
+	{	
+		*q++ = *p++;
+		if(q-s2>=len)
+		{
+			*q = ___________;
+			q = s2;
+		}
+	}
+	strcpy(s,s2);
+	free(s2);
+}

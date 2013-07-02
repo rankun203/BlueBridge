@@ -1,0 +1,7 @@
+		String s = "1234567";		
+		String s2 = "";
+		for(int i=0; i<s.length(); i++)
+		{
+			s2 = s.charAt(i) + __________;
+		}
+		System.out.println(s2);

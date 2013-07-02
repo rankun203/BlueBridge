@@ -1,0 +1,9 @@
+	public static double getTotal(double[] price, double[] weight)
+	{
+		double x = 0;
+		for(int i=0; i<price.length; i++)
+		{
+			____________________;
+		}
+		return x;
+	}

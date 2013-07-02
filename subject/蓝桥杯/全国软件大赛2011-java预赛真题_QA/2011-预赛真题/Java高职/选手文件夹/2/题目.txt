@@ -1,0 +1,4 @@
+	public static double getDistance(int begin, int end, double d)
+	{
+		return (end-begin) * Math.PI * d * d _________; 
+	}

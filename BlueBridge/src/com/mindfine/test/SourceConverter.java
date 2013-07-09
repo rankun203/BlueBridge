@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.util.Stack;
 
 public class SourceConverter {
 	public String converter(String src) {
@@ -26,43 +25,38 @@ public class SourceConverter {
 					+ "</b>&nbsp;");
 		}
 
-		System.out.println("---------------------------------------------------------------------------------\r\n" +ftd);
-		Stack<String> quoteStack = new Stack<String>();
+		
+		//当前循环是否处于字符串内
 		boolean inQuote = false;
-		for (int i = 0; i < ftd.length(); i++) {
-//TODO 实现忽略字符串（双引号之间的内容）里面的//符号
-/*
-			if (quotPos == i && ftd.charAt(i - 1) != '\\') {
-				quoteStack.pop();
-				inQuote = false;
+		//开启的标签
+		int open = 0;
+		//每个引号一个位置
+		int lastQuot = 0;
+		//循环每一个字符
+		for (int i = 0; true; i++) {
+System.out.println(i);
+			if(ftd.indexOf("&quot;", i) == i) {//如果发现了字符串符号，就toggle isQuote
+				lastQuot = i;
+				inQuote = inQuote ? false : true;
+				i += 6;
 			}
-			if(!inQuote){//如果不在括号里面
-				ftd = ftd.substring(0, firstIn) + "<font color=green>"
-						+ ftd.substring(firstIn, ftd.length());
-				int firstEnd = ftd.indexOf("\r\n", firstIn);
-				ftd = ftd.substring(0, firstEnd) + "</font>"
-						+ ftd.substring(firstEnd, ftd.length());
-				i = firstEnd;
-				
-			}
-*/
-			int firstIn = ftd.indexOf("//");
-			
-			if(ftd.charAt(i) == '\"'){//如果当前符号是引号
-				inQuote = true;
-				int quotPos = ftd.indexOf("&quot;", i);
-				firstIn = ftd.indexOf("//", quotPos);//在引号之后找注释符号
-				if (quotPos != -1) {
-					quoteStack.push("\"");
-					continue;
+			if(!inQuote) {//如果没有在字符串内
+				if(ftd.charAt(i) == '/' && ftd.charAt(i+1) == '/') {
+					ftd = ftd.substring(0, i) + "<font color=green>" + ftd.substring(i, ftd.length());
+					open++;
+					i += 19;
+				} else if (ftd.charAt(i) == '\r' && open != 0) {
+					ftd = ftd.substring(0, i) + "</font>" + ftd.substring(i, ftd.length());
+					open--;
+					i += 8;
 				}
-				
 			}
 
-			if (quoteStack.size() == 0) {
-				if (firstIn < 0) {
-					break;
-				}
+			if(i==886){
+				System.out.println("--"+ftd.length());
+			}
+			if(i == ftd.length() - 1){
+				break;
 			}
 		}
 
@@ -73,7 +67,6 @@ public class SourceConverter {
 		SourceConverter sc = new SourceConverter();
 		String src = sc.readFile("a.txt");
 		String ftd = sc.converter(src);
-		System.out.println(ftd);
 		sc.saveFile("a.html", ftd);
 	}
 

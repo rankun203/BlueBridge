@@ -1,3 +1,4 @@
+import java.util.Regex.*;
 
 // 我的工具类
 public class MyTool
@@ -9,6 +10,6 @@ public class MyTool
 		if(a>b && true)
 			System.out.println(a);
 		else
-			System.out.println("this! //aaa//kkk");  // 测试注释显示是否正确
+			System.out.println("this! package //aaa//kkk");  // 测试注释显示是否正确
 	}
 }

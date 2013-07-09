@@ -15,14 +15,14 @@ public class SourceConverter {
 				.replaceAll("\\t", "&nbsp;&nbsp;&nbsp;&nbsp;")
 				.replaceAll("\r\n", "\r\n<br>");
 
-		String[] keyWord = { "public", "return", "throws", "import", "static",
-				"int", "long", "float", "double", "new", "void", "class",
-				"throw", "while", "for", "private", "protected", "final",
-				"const" };
-		for (int i = 0; i < keyWord.length; i++) {
-			String ptn = keyWord[i];
-			ftd = ftd.replaceAll("&nbsp;" + ptn + "&nbsp;", "&nbsp;<b>" + ptn
-					+ "</b>&nbsp;");
+		String[] keyWord = { "public&nbsp;", "return&nbsp;", "throws&nbsp;", "import&nbsp;", "static&nbsp;",
+				"int&nbsp;", "long&nbsp;", "float&nbsp;", "double&nbsp;", "new&nbsp;", "void&nbsp;", "class&nbsp;",
+				"throw&nbsp;", "while&nbsp;", "for&nbsp;", "private&nbsp;", "protected&nbsp;", "final&nbsp;",
+				"const&nbsp;" };
+		//加粗关键字
+		for (int j = 0; j < keyWord.length; j++) {
+			String ptn = keyWord[j];
+			ftd = ftd.replaceAll(ptn, "&nbsp;<b>" + ptn + "</b>&nbsp;");
 		}
 
 		
@@ -30,13 +30,9 @@ public class SourceConverter {
 		boolean inQuote = false;
 		//开启的标签
 		int open = 0;
-		//每个引号一个位置
-		int lastQuot = 0;
 		//循环每一个字符
 		for (int i = 0; true; i++) {
-System.out.println(i);
 			if(ftd.indexOf("&quot;", i) == i) {//如果发现了字符串符号，就toggle isQuote
-				lastQuot = i;
 				inQuote = inQuote ? false : true;
 				i += 6;
 			}
@@ -51,10 +47,6 @@ System.out.println(i);
 					i += 8;
 				}
 			}
-
-			if(i==886){
-				System.out.println("--"+ftd.length());
-			}
 			if(i == ftd.length() - 1){
 				break;
 			}
@@ -68,6 +60,7 @@ System.out.println(i);
 		String src = sc.readFile("a.txt");
 		String ftd = sc.converter(src);
 		sc.saveFile("a.html", ftd);
+		System.out.println("完成");
 	}
 
 	private String readFile(String fileName) throws Exception {
